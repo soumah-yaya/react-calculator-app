@@ -1,13 +1,123 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import-normalize;
+
+:root {
+    --text-white: hsl(0, 0%, 100%);
+
+    --theme1-main-background-dark-desaturated-blue: hsl(222, 26%, 31%);
+    --theme1-toggle-keypad-background-dark-blue: hsl(223, 31%, 20%);
+    --theme1-screen-background-dark-blue: hsl(224, 36%, 15%);
+    --theme1-key-background-dark-blue: hsl(225, 21%, 49%);
+    --theme1-key-shadow-dark-red: hsl(224, 28%, 35%);
+    --theme1-key-toggle-background-red: hsl(6, 63%, 50%);
+    --theme1-key-shadow-red-dark: hsl(6, 70%, 34%);
+    --theme1-key-backgound-light-grayish-orange: hsl(30, 25%, 89%);
+    --theme1-key-shadow-grayish-orange: hsl(28, 16%, 65%);
+    --theme1-text-dark-grayish-blue: hsl(221, 14%, 31%);
+
+    --theme2-main-background-light-gray: hsl(0, 0%, 90%);
+    --theme2-toggle-keypad-background-grayish-red: hsl(0, 5%, 81%);
+    --theme2-screen-background-light-gray: hsl(0, 0%, 93%);
+    --theme2-key-background-cyan-dark-moderate: hsl(185, 42%, 37%);
+    --theme2-key-shadow-dark-cyan: hsl(224, 28%, 35%);
+    --theme2-key-toggle-background-orange: hsl(25, 98%, 40%);
+    --theme2-key-shadow-orange-dark: hsl(25, 99%, 27%);
+    --theme2-key-backgound-light-grayish-yellow: hsl(45, 7%, 89%);
+    --theme2-key-shadow-dark-grayish-orange: hsl(35, 11%, 61%);
+    --theme2-text-dark-grayish-yellow: hsl(60, 10%, 19%);
+
+
+    --theme3-main-background-dark-violet: hsl(268, 75%, 9%);
+    --theme3-toggle-keypad-screen-dark-violet: hsl(285, 91%, 52%);
+    --theme3-key-background-dark-violet: hsl(281, 89%, 26%);
+    --theme3-key-shadow-vivid-magenta: hsl(285, 91%, 52%);
+    --theme3-key-toggle-background-pure-cyan: hsl(176, 100%, 44%);
+    --theme3-key-shadow-soft-cyan: hsl(177, 92%, 70%);
+    --theme3-key-backgound-dark-violet: hsl(268, 47%, 21%);
+    --theme3-key-shadow-dark-dark-magenta: hsl(290, 70%, 36%);
+    --theme3-text-light-yellow: hsl(52, 100%, 62%);
+    --theme3-text-dark-blue: hsl(198, 20%, 13%);
+
+
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body,
+#root {
+    font-family: sans-serif;
+    font-size: 10px;
+    margin: 0;
+    height: 100vh;
+}
+
+*,
+*::before,
+*::after {
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+textarea {
+    overflow: auto;
+}
+
+ol,
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+img,
+video,
+iframe {
+    border: 0;
+    vertical-align: middle;
+    max-inline-size: 100%;
+    block-size: auto;
 }
