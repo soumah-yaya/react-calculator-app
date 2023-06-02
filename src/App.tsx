@@ -205,7 +205,7 @@ function App() {
   let screenValue = Number(display).toLocaleString()
 
   return (
-    <div data-theme={theme} className="app-wrapper">
+    <div data-theme={theme} className="app-wrapper light dark">
       <article className='app'>
         <Header toggleSwitch={setTheme} />
         <main>

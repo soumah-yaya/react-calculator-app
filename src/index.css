@@ -123,3 +123,17 @@ iframe {
     max-inline-size: 100%;
     block-size: auto;
 }
+
+@media (prefers-color-schema:light) {
+   
+        .light {
+                background-color: var(--theme2-main-background-light-gray);
+                color: var(--theme2-text-dark-grayish-yellow);
+            }
+}
+@media (prefers-color-schema:dark) {   
+        .dark {
+            color: var(--theme3-text-light-yellow);
+            background-color: var(--theme3-main-background-dark-violet);
+        }
+}
