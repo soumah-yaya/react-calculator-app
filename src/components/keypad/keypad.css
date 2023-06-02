@@ -1,0 +1,30 @@
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(5,auto);
+    gap: 25px;
+    margin-top: 22px;
+    padding: 30px;
+    background-color: var(--theme1-toggle-keypad-background-dark-blue);
+    border-radius: 10px;
+    
+}
+
+[data-theme=theme2] .keypad {
+    background-color: var(--theme2-toggle-keypad-background-grayish-red);
+
+}
+
+[data-theme=theme3] .keypad {
+    background-color: var(--theme3-toggle-keypad-screen-dark-violet);
+
+}
+
+@media (max-width: 776px){
+    .keypad {
+            
+            gap: 14px;
+            padding: 23px;
+    
+        }
+}

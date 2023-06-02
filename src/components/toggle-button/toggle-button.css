@@ -1,0 +1,57 @@
+.toggle-wrapper {
+    display: inline-block;
+    width: 70px;
+}
+
+.toggle-number {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.toggle-number>span {
+    padding: 0 2px;
+}
+
+.toggle-radio-track {
+    position: relative;
+    height: 26px;
+    border-radius: 15px;
+    margin-top: 4px;
+    background-color: var(--theme1-toggle-keypad-background-dark-blue);
+    cursor: pointer;
+
+}
+
+[data-theme=theme2] .toggle-radio-track {
+    background-color: var(--theme2-toggle-keypad-background-grayish-red);
+
+}
+[data-theme=theme3] .toggle-radio-track {
+    background-color: var(--theme3-toggle-keypad-screen-dark-violet);
+
+}
+
+.toggle-radio-handle {
+    position: absolute;
+    top: 50%;
+    left: 7px;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background-color: var(--theme1-key-toggle-background-red);
+    transition: all ease 0.2s;
+    border-radius: 50%;
+}
+
+
+
+[data-theme=theme2] .toggle-radio-handle {
+    background-color: var(--theme2-key-toggle-background-orange);
+    left: 26px;
+}
+
+[data-theme=theme3] .toggle-radio-handle {
+    background-color: var(--theme3-key-toggle-background-pure-cyan);
+    left: 48px;
+}

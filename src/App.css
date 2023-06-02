@@ -1,25 +1,35 @@
-/* theme 1 */
-[data-theme=theme1] {
-    background-color: var(--theme1-main-background-dark-desaturated-blue);
-  }
-  /* theme 2 */
-[data-theme=theme2] {
-    background-color: var(--theme2-main-background-light-gray);
-  }
-  /* theme 3 */
-[data-theme=theme3] {
-    background-color: var(--theme3-main-background-dark-violet);
-  }
-
 .app-wrapper {
   padding-top: 98px;
   height: 100%;
- 
+  color: var(--text-white);
+  background-color: var(--theme1-main-background-dark-desaturated-blue);
+
 }
 
-.app{
-    width: 540px;
-     height: 100px;
-    margin:  auto;
-    background-color: pink;
+.app {
+  max-width: 540px;
+  height: 100px;
+  margin: auto;
+}
+
+/* theme 2 */
+[data-theme=theme2] {
+  background-color: var(--theme2-main-background-light-gray);
+  color: var(--theme2-text-dark-grayish-yellow);
+}
+
+/* theme 3 */
+[data-theme=theme3] {
+  color: var(--theme3-text-light-yellow);
+  background-color: var(--theme3-main-background-dark-violet);
+}
+
+@media (max-width: 776px){
+.app-wrapper {
+    padding-top: 5px;
+  }
+
+  .app {
+     padding: 24px;
+    }
 }

@@ -1,0 +1,129 @@
+.keybutton {
+    height: 60px;
+    width: 100%;
+    font-size: 2.4rem;
+    font-weight: 700;
+    border-radius: 10px;
+    color: var(--theme1-text-dark-grayish-blue);
+    background-color: var(--theme1-key-backgound-light-grayish-orange);
+    box-shadow: 0px 4px var(--theme1-key-shadow-grayish-orange);
+}
+
+.keybutton:active {
+    background-color: var(--theme2-main-background-light-gray);
+    transform: translateY(2px);
+    box-shadow: 0px 2px var(--theme1-key-shadow-grayish-orange);
+}
+
+[data-theme=theme2] .keybutton {
+    color: var(--theme2-text-dark-grayish-yellow);
+    background-color: var(--theme2-key-backgound-light-grayish-yellow);
+    box-shadow: 0px 4px var(--theme2-key-shadow-dark-grayish-orange);
+}
+
+[data-theme=theme2] .keybutton:active {
+    background-color: var(--theme2-main-background-light-gray);
+    box-shadow: 0px 2px var(--theme2-key-shadow-dark-grayish-orange);
+}
+
+[data-theme=theme3] .keybutton {
+    color: var(--theme3-text-light-yellow);
+    background-color: var(--theme3-key-backgound-dark-violet);
+    box-shadow: 0px 4px var(--theme3-key-shadow-dark-dark-magenta);
+}
+
+[data-theme=theme3] .keybutton:active {
+    box-shadow: 0px 2px var(--theme3-key-shadow-dark-dark-magenta);
+}
+
+.keybutton.del {
+    font-size: 1.6rem;
+    color: var(--text-white);
+    background-color: var(--theme1-key-background-dark-blue);
+    box-shadow: 0px 4px var(--theme1-key-shadow-dark-red);
+}
+
+.keybutton.del:active {
+
+    transform: translateY(2px);
+    box-shadow: 0px 2px var(--theme1-key-shadow-dark-red);
+}
+
+[data-theme=theme2] .keybutton.del {
+    color: var(--text-white);
+    background-color: var(--theme2-key-background-cyan-dark-moderate);
+    box-shadow: 0px 4px var(--theme2-key-shadow-dark-cyan);
+}
+
+[data-theme=theme2] .keybutton.del:active {
+    transform: translateY(2px);
+    box-shadow: 0px 2px var(--theme2-key-shadow-dark-cyan);
+}
+
+.reset {
+    grid-column: 1/3;
+}
+
+[data-theme=theme3] .keybutton.del {
+    color: var(--text-white);
+    background-color: var(--theme3-key-background-dark-violet);
+    box-shadow: 0px 4px var(--theme3-key-shadow-dark-dark-magenta);
+}
+
+[data-theme=theme3] .keybutton.del:active {
+    background-color: var(--theme3-key-shadow-dark-dark-magenta);
+    transform: translateY(2px);
+    box-shadow: 0px 2px var(--theme3-key-shadow-vivid-magenta);
+}
+
+.keybutton.equal {
+    grid-column: 3/5;
+    color: var(--text-white);
+    background-color: var(--theme1-key-toggle-background-red);
+    box-shadow: 0px 4px var(--theme1-key-shadow-red-dark);
+}
+
+.keybutton.equal:active {
+
+    transform: translateY(2px);
+    box-shadow: 0px 2px var(--theme1-key-shadow-red-dark);
+}
+
+[data-theme=theme2] .keybutton.equal {
+    color: var(--text-white);
+    background-color: var(--theme2-key-toggle-background-orange);
+    box-shadow: 0px 4px var(--theme2-key-shadow-orange-dark);
+}
+
+[data-theme=theme2] .keybutton.equal:active {
+    transform: translateY(2px);
+    box-shadow: 0px 2px var(--theme2-key-shadow-orange-dark);
+}
+
+[data-theme=theme3] .keybutton.equal {
+    color: var(--theme3-text-dark-blue);
+    background-color: var(--theme3-key-toggle-background-pure-cyan);
+    box-shadow: 0px 4px var(--theme3-key-shadow-soft-cyan);
+}
+
+[data-theme=theme3] .keybutton.equal:active {
+    transform: translateY(2px);
+    box-shadow: 0px 2px var(--theme3-key-shadow-soft-cyan);
+}
+
+@media (max-width: 776px) {
+    .keybutton {
+        height: 60px;
+        width: 100%;
+        font-size: 2rem;
+        font-weight: 700;
+        border-radius: 10px;
+        color: var(--theme1-text-dark-grayish-blue);
+        background-color: var(--theme1-key-backgound-light-grayish-orange);
+        box-shadow: 0px 4px var(--theme1-key-shadow-grayish-orange);
+    }
+
+    .keybutton.del, .keybutton.equal {
+        font-size: 1rem;
+    }
+}

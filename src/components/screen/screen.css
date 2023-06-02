@@ -1,0 +1,39 @@
+.screen {
+    font-size: 3.2rem;
+    padding: 30px 34px;
+    margin-top: 30px;
+    background-color: var(--theme1-screen-background-dark-blue);
+    border-radius: 10px;
+}
+
+.screen>span {
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+    font-weight: 600;
+    color: var(--text-white);
+    cursor: default;
+}
+
+[data-theme=theme2] .screen {
+    background-color: var(--theme2-screen-background-light-gray);
+}
+
+[data-theme=theme2] .screen>span {
+    color: var(--theme2-text-dark-grayish-yellow);
+}
+
+[data-theme=theme3] .screen {
+    background-color: var(--theme3-toggle-keypad-screen-dark-violet);
+}
+
+[data-theme=theme3] .screen>span {
+    color: var(--theme3-text-light-yellow);
+}
+
+@media (max-width: 776px) {
+    .screen {
+        font-size: 2.4rem;
+        padding: 20px 25px;
+    }
+}

@@ -1,0 +1,23 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+    
+}
+.header h1 {
+    font-size: 1.9rem;
+    padding-top: 7px;
+    margin: 0;
+   
+    
+}
+.header > .theme {
+display: flex;
+align-items: flex-end;
+gap: 28px;
+}
+.header > .theme >span{
+ font-size: 600;   
+padding-bottom: 8px;
+}

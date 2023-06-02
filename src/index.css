@@ -13,7 +13,7 @@
     --theme1-key-backgound-light-grayish-orange: hsl(30, 25%, 89%);
     --theme1-key-shadow-grayish-orange: hsl(28, 16%, 65%);
     --theme1-text-dark-grayish-blue: hsl(221, 14%, 31%);
-
+/* theme2 */
     --theme2-main-background-light-gray: hsl(0, 0%, 90%);
     --theme2-toggle-keypad-background-grayish-red: hsl(0, 5%, 81%);
     --theme2-screen-background-light-gray: hsl(0, 0%, 93%);
@@ -24,10 +24,10 @@
     --theme2-key-backgound-light-grayish-yellow: hsl(45, 7%, 89%);
     --theme2-key-shadow-dark-grayish-orange: hsl(35, 11%, 61%);
     --theme2-text-dark-grayish-yellow: hsl(60, 10%, 19%);
-
+/* theme3 */
 
     --theme3-main-background-dark-violet: hsl(268, 75%, 9%);
-    --theme3-toggle-keypad-screen-dark-violet: hsl(285, 91%, 52%);
+    --theme3-toggle-keypad-screen-dark-violet: hsl(268, 71%, 12%);
     --theme3-key-background-dark-violet: hsl(281, 89%, 26%);
     --theme3-key-shadow-vivid-magenta: hsl(285, 91%, 52%);
     --theme3-key-toggle-background-pure-cyan: hsl(176, 100%, 44%);
@@ -41,11 +41,13 @@
 
 }
 
+
 body,
 #root {
     font-family: sans-serif;
     font-size: 10px;
     margin: 0;
+    padding: 0;
     height: 100vh;
 }
 
