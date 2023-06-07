@@ -4,11 +4,13 @@ import { Header, Keypad, Screen } from './components';
 import { retrieveData, performCalculation } from './utils';
 
 type AppType = {
-  firstOperand: number | boolean,
+  firstOperand: string | boolean,
   isWaitingForSecondOperand: boolean,
   operator: string,
   display: string,
   isSubmitted: boolean,
+  lastKey: string | boolean,
+  modeValue: string | boolean
 }
 
 
@@ -22,10 +24,12 @@ function App() {
     operator: '',
     display: '0',
     isSubmitted: false,
+    lastKey: false,
+    modeValue: false
   })
 
   // reset all 
-  const handleResetClick = () => (
+  const handleResetButton = () => (
     setCalculator({
       ...calculator,
       isWaitingForSecondOperand: false,
@@ -33,20 +37,18 @@ function App() {
       operator: '',
       display: '0',
       isSubmitted: false,
+      lastKey: false,
+      modeValue: false
     })
   )
 
-
   //handle numeric input
-  const handleDigitInput = (digit: number) => {
-    const { isWaitingForSecondOperand, isSubmitted, display } = calculator
-    let disp = display
+  const handleDigitButtons = (digit: string) => {
 
-    if (disp === '0' || isWaitingForSecondOperand || isSubmitted) {
-      disp = digit + ''
-    } else {
-      disp = disp + digit + ''
-    }
+    const { display, lastKey } = calculator
+    let disp = (display === '0'
+      || lastKey === 'operator'
+      || lastKey === 'equal') ? digit : display + digit
 
     // limit entry to 9 digits
     if (disp.length > 9) {
@@ -55,53 +57,38 @@ function App() {
 
     setCalculator({
       ...calculator,
-      isSubmitted: false,
-      isWaitingForSecondOperand: false,
       display: disp,
+      lastKey: 'number'
     })
 
   }
 
   //handle operator sign input
-  const handleOperator = (op: string) => {
-    const { isWaitingForSecondOperand, firstOperand, display, operator } = calculator
+  const handleOperatorButtons = (op: string) => {
+    const { operator, display, lastKey, firstOperand } = calculator
 
-    if (isWaitingForSecondOperand) {
-      if (operator !== op) {
-        setCalculator({
-          ...calculator,
-          operator: op
-        })
-      }
-
+    if (firstOperand !== false && operator && lastKey !== 'operator' && lastKey !== 'equal') {
+      let response = performCalculation(operator, firstOperand, display)
+      setCalculator({
+        ...calculator,
+        firstOperand: response,
+        display: response,
+        lastKey: 'operator',
+        operator: op
+      })
     } else {
-      let disp = display
-      if (!firstOperand) {
-        setCalculator({
-          ...calculator,
-          firstOperand: Number(disp),
-          operator: op,
-          isWaitingForSecondOperand: true,
-          display: disp,
-          isSubmitted: false,
-
-        })
-      } else {
-        let response = performCalculation(operator, +firstOperand, Number(disp))
-        setCalculator({
-          ...calculator,
-          firstOperand: +response!,
-          display: response + '',
-          isWaitingForSecondOperand: true,
-          operator: op,
-          isSubmitted: false,
-        })
-      }
+      setCalculator({
+        ...calculator,
+        firstOperand: display,
+        lastKey: 'operator',
+        operator: op
+      })
     }
+
   }
 
   //handle del button click
-  const handleDelClick = () => {
+  const handleDelButton = () => {
     const { display } = calculator
 
     let length = display.length
@@ -121,95 +108,74 @@ function App() {
 
 
   //handle submit button click
-  const handleSubmit = () => {
-    const { firstOperand, display, operator } = calculator
+  const handleEqualButton = () => {
 
-    // submit only if first operand exits or no operand
-    if (firstOperand === false || !operator) {
-      return
+    const { operator, display, lastKey, firstOperand, modeValue } = calculator
+    if (firstOperand !== false) {
+      let response = performCalculation(operator, firstOperand, display)
+      setCalculator({
+        ...calculator,
+        firstOperand: false,
+        display: response,
+        modeValue: display,
+        lastKey: 'equal',
+      })
+
+    } else {
+      if (lastKey === 'equal') {
+        let response = performCalculation(operator, display, modeValue)
+        setCalculator({
+          ...calculator,
+          display: response,
+          firstOperand: false,
+          lastKey: 'equal',
+        })
+      }
     }
-
-    let disp = display
-    let response: any
-
-    response = performCalculation(operator, +firstOperand, Number(disp))
-
-    setCalculator({
-      ...calculator,
-      display: response,
-      isSubmitted: true,
-      isWaitingForSecondOperand: false,
-      firstOperand: false
-    })
 
   }
 
 
   //handle set dot
-  const setDot = () => {
-    const { display, isWaitingForSecondOperand, isSubmitted } = calculator
-    // waiting for second operand first digit according to either equal button is clicked or not
-    if (isWaitingForSecondOperand) {
+  const handleDotButton = () => {
+    const { display, lastKey } = calculator
+    
+    if (lastKey === 'operator' || lastKey === 'equal') {
       setCalculator({
         ...calculator,
-        display: isSubmitted ? display + '' : '0.',
-        isSubmitted: false,
-        isWaitingForSecondOperand: false
+        display: '0.',
+        lastKey: 'dot'
       })
-      return
-    }
-
-    let screen = display + ''
-    console.log(screen);
-
-    // for any entry append only if no dot
-    if (screen.indexOf('.') === -1 && screen.length < 9) {
-
+    } else if (!display.includes('.')) {
       setCalculator({
         ...calculator,
-        display: screen + '.',
-        // isSubmitted: false,
-        // firstOperand: false
+        display: display + '.',
+        lastKey: 'dot'
       })
-    }
+
+    } 
   }
 
   //handle input
-  const handleButtonClick = (inputValue: string | number) => {
-    switch (inputValue) {
-      case 0:
-      case 1:
-      case 2:
-      case 3:
-      case 4:
-      case 5:
-      case 6:
-      case 7:
-      case 8:
-      case 9: handleDigitInput(inputValue); break;
-      case '.': setDot(); break;
-      case '+':
-      case '-':
-      case 'x':
-      case '/': handleOperator(inputValue); break;
-      case 'DEL': handleDelClick(); break;
-      case 'RESET': handleResetClick(); break;
-      case '=': handleSubmit(); break;
-      default: break;
-    }
+  const handleButtonClick = (input: string) => {
+    if (input === '=') { handleEqualButton() }
+    else if (input === '.') { handleDotButton() }
+    else if (input === '+' || input === '-' || input === 'x' || input === '/') { handleOperatorButtons(input) }
+    else if (input === 'DEL') { handleDelButton() }
+    else if (input === 'RESET') { handleResetButton() }
+    else { handleDigitButtons(input) }
 
   }
 
   //set the display
   const { display } = calculator
-  let screenValue = Number(display).toLocaleString()
 
   return (
     <div data-theme={theme} className="app-wrapper light dark">
       <article className='app'>
         <Header toggleSwitch={setTheme} />
         <main>
-          <Screen display={screenValue} />
+          <Screen display={display.toLocaleString()} />
           <Keypad handleButtonClick={handleButtonClick} />
         </main>
       </article>

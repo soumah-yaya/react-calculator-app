@@ -8,21 +8,21 @@ export const retrieveData = (key, defaultValue) => {
 
 //perform calculation
 export const performCalculation = (op, arg1, arg2) => {
+    let op1 = parseFloat(arg1)
+    let op2 = parseFloat(arg2)
     switch (op) {
-        case '/': return calculate(arg1 *10 / arg2)
-        case 'x': return calculate(arg1 * arg2 * 10)
-        case '+': return calculate(arg1*10 + arg2*10)
-        case '-': return calculate(arg1*10 - arg2*10)
+        case '/': return calculate(op1 / op2)
+        case 'x': return calculate(op1 * op2)
+        case '+': return calculate((op1*10 + op2*10)/10)
+        case '-': return calculate(op1 - op2)
         default: break;
     }
 }
 
-function calculate(value) {
-    let result = value / 10
-    // limit to 15 digit
-    result = result?.toString()
+function calculate(value) {    
+    let result = value?.toString()
     if (result.length > 9) {
-        result = Number(result.slice(0, 9))
+        result = result.slice(0, 9)
     }
     return result
 }

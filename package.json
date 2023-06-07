@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "keywords": ["react", "typescript", "css"],
-  "homepage": "https://soumah-yaya.github.io/react-calculator/",
+  "homepage": "https://soumah-yaya.github.io/react-calculator-app/",
   "dependencies": {
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.34",

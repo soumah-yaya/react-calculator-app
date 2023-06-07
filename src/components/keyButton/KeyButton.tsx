@@ -3,8 +3,8 @@ import React from 'react'
 import './keybutton.css'
 
 type KeyButtonType = {
-    text: string | number;
-    click:(txt:string|number)=>void;
+    text: string ;
+    click:(txt:string)=>void;
     isDelKey?:boolean;
     isEqualKey?:boolean;
 }
